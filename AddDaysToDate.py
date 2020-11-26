@@ -1,7 +1,9 @@
 '''
 Code Challenge To add 'add_days' number of non-weekend days to a date and return 
 the new date without using special calendar libraries, not accounting for 
-holidays, and without simply looping through each day 
+holidays, and without simply looping through each day.
+
+Example: adding 10 non-business days to 11/25/2020 would return 12/9/2020.
 
 It nicely applies a practical use for Modulus, because (the number of days to 
 add + the integer of the starting day) % 7 will tell you what day of the week 
