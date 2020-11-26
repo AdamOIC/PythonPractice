@@ -36,9 +36,9 @@ Example of the code being exexcuted by the client:
   var busDays  = getDateAfterWorkDays(today, 6)
 
 
-The client framework already included special calendaring options to automatically account for business days only, which is why this code stood out to me as incredibly bad.  The original developer didn't use the calendaring available for dealing with business days, and instead made functions to loop through each date.  Not only that, they logged each iteration, leaving that logging in the final code.  In practice, that application works fine for short amounts. But in larger applications, like adding 300 days, the system would be iterating through and logging each loop.  A little unweildy.
+The client framework already included special calendaring options to automatically account for business days only, which is why this problem stood out to me.  The original developer didn't use the calendaring available for dealing with business days, and instead made functions to loop through each date.  Not only that, they logged each iteration, leaving that logging in the final code.  In practice, that application works fine for short periods. In larger applications, like adding 300 days, the system would be iterating through and logging each loop.  A little unweildy.
 
-Eventually, what drew their attention to a problem was that they were emailing out the final date to customers, using this code to send a date:
+Eventually, what drew the clients attention to a problem was that they were emailing out the final date to customers, using this code to send a date:
   var newDate = (busDate.getMonth() + 1) + ”/” + (busDate.getDate() - 1)  + “/” + (busDate.getYear() + 1900);
 The main problem with that line, is a javascript.getDate() returns an integer between 1 and 31, not a zero based index.  So they were sending out dates that looked like this: "12/0/2020".
 
